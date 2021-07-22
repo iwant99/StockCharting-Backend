@@ -8,11 +8,24 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 public class HomeController {
 private final AdminService adminService;
 
     public HomeController(AdminService adminService) {
         this.adminService = adminService;
+    }
+    @GetMapping("/")
+    public String stranger(){
+        return ("<h1>welcome stranger!</h1>");
+    }
+    @GetMapping("/user")
+    public String user(){
+        return ("<h1>welcome user!</h1>");
+    }
+    @GetMapping("/admin")
+    public String admin(){
+        return ("<h1>welcome admin!</h1>");
     }
     @PostMapping ("/addcompany")
     public ResponseEntity<?> addCompany(@Valid @RequestBody CompanyDTO companyDTO){

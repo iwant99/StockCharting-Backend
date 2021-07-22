@@ -2,11 +2,10 @@ package com.example.stocknew;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@SpringBootApplication(exclude = {
-        org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class
-        }
-)
+@SpringBootApplication
+@EnableJpaRepositories
 public class StockNewApplication {
 
     public static void main(String[] args) {
