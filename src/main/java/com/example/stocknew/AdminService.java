@@ -32,20 +32,10 @@ public class AdminService {
         return sectorRepository.findAll();
     }
     public Optional <Company> findById(Long id){
-     Optional <Company> company = companyRepository.findById(id);
-     if (company.isPresent())
-     {
-         return company;
-     }
-     return null ;
+        return companyRepository.findById(id);
     }
     public Company findCompanyByCode(Long code){
-        Company company= companyRepository.findCompanyByCode(code);
-        if (company!=null)
-        {
-            return company;
-        }
-        return null ;
+        return companyRepository.findCompanyByCode(code);
     }
     public void deleteCompanyById(Long id){
         companyRepository.deleteById(id);
@@ -54,16 +44,14 @@ public class AdminService {
         companyRepository.deleteCompanyByCode(code);
     }
     public Company updateCompanyById(Long id,CompanyDTO companyDTO){
-        companyRepository.deleteById(id);
-        System.out.println("deleted");
-    Company company=new Company();
-    company.setName(companyDTO.getName());
-    company.setCode(companyDTO.getCode());
-    company.setSector(sectorRepository.findById(companyDTO.getSectorId()).get());
-    company.setCeo(companyDTO.getCeo());
-    company.setBrief(companyDTO.getBrief());
-    company.setTurnover(companyDTO.getTurnover());
-    return companyRepository.save(company);
+        Company company=companyRepository.getOne(id);
+        company.setName(companyDTO.getName());
+        company.setCode(companyDTO.getCode());
+        company.setSector(sectorRepository.findById(companyDTO.getSectorId()).get());
+        company.setCeo(companyDTO.getCeo());
+        company.setBrief(companyDTO.getBrief());
+        company.setTurnover(companyDTO.getTurnover());
+        return companyRepository.save(company);
 }
     public List<StockExchange> getAllExchanges(){
         return stockExchangeRepository.findAll();
@@ -73,7 +61,13 @@ public class AdminService {
     }
     public StockExchange updateExchangeById(Long id,StockExchange stockExchange)
     {
-        stockExchangeRepository.deleteById(id);
-       return stockExchangeRepository.save(stockExchange);
+        StockExchange stockExchange1=stockExchangeRepository.getOne(id);
+        stockExchange1.setName(stockExchange.getName());
+        stockExchange1.setBrief(stockExchange.getBrief());
+        stockExchange1.setStreet(stockExchange.getStreet());
+        stockExchange1.setState(stockExchange.getState());
+        stockExchange1.setCountry(stockExchange.getCountry());
+        stockExchange1.setRemarks(stockExchange.getRemarks());
+       return stockExchangeRepository.save(stockExchange1);
     }
 }

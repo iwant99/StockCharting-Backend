@@ -9,21 +9,14 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin
-public class HomeController {
+@RequestMapping("/admin")
+public class AdminController {
 private final AdminService adminService;
 
-    public HomeController(AdminService adminService) {
+    public AdminController(AdminService adminService) {
         this.adminService = adminService;
     }
-    @GetMapping("/")
-    public String stranger(){
-        return ("<h1>welcome stranger!</h1>");
-    }
-    @GetMapping("/user")
-    public String user(){
-        return ("<h1>welcome user!</h1>");
-    }
-    @GetMapping("/admin")
+    @GetMapping("")
     public String admin(){
         return ("<h1>welcome admin!</h1>");
     }
@@ -33,9 +26,10 @@ private final AdminService adminService;
     }
     @DeleteMapping("/deletecompany/id={id}")
     public ResponseEntity<?> deleteCompanyById(@PathVariable("id") Long id){
-        if(adminService.findById(id).isPresent())
-        { adminService.deleteCompanyById(id);
-
+        Optional<Company> company =adminService.findById(id);
+        System.out.println("its here");
+        if(company.isPresent())
+        {   adminService.deleteCompanyById(id);
             return ResponseEntity.ok("successfully deleted");
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("company id doesnt exists");
@@ -50,7 +44,7 @@ private final AdminService adminService;
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("company id doesnt exists");
 
     }
-    @PostMapping("/updatecompany/id={id}")
+    @PostMapping ("/updatecompany/id={id}")
     public ResponseEntity<?> updateCompanyById(@PathVariable("id") Long id,@RequestBody CompanyDTO companyDTO){
         if(adminService.findById(id).isPresent())
         {  Company company=adminService.updateCompanyById(id,companyDTO);
@@ -94,7 +88,7 @@ private final AdminService adminService;
     public ResponseEntity<?> getAllExch(){
         return ResponseEntity.ok(adminService.getAllExchanges());
     }
-    @PostMapping("/updatexchange/id={id}")
+    @PostMapping ("/updatexchange/id={id}")
     public ResponseEntity<?> updateEchangeById(@PathVariable("id") Long id,@RequestBody StockExchange stockExchange){
         if(adminService.findExchangeById(id).isPresent())
         {  StockExchange stockExchange1=adminService.updateExchangeById(id,stockExchange);
