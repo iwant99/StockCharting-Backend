@@ -1,5 +1,6 @@
-package com.example.stocknew;
+package com.example.stocknew.controllers;
 
+import com.example.stocknew.repos.UserRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

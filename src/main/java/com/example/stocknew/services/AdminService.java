@@ -1,5 +1,12 @@
-package com.example.stocknew;
+package com.example.stocknew.services;
 
+import com.example.stocknew.models.Company;
+import com.example.stocknew.models.CompanyDTO;
+import com.example.stocknew.models.Sector;
+import com.example.stocknew.models.StockExchange;
+import com.example.stocknew.repos.CompanyRepository;
+import com.example.stocknew.repos.SectorRepository;
+import com.example.stocknew.repos.StockExchangeRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,10 +1,8 @@
-package com.example.stocknew;
+package com.example.stocknew.repos;
 
+import com.example.stocknew.models.Company;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-
-import javax.transaction.Transactional;
 
 public interface CompanyRepository extends JpaRepository<Company, Long> {
     boolean existsByName(String Name);

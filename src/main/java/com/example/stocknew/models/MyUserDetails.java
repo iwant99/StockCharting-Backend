@@ -1,4 +1,4 @@
-package com.example.stocknew;
+package com.example.stocknew.models;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

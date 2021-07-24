@@ -1,4 +1,4 @@
-package com.example.stocknew;
+package com.example.stocknew.models;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

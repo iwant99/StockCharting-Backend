@@ -1,5 +1,9 @@
-package com.example.stocknew;
+package com.example.stocknew.controllers;
 
+import com.example.stocknew.services.AdminService;
+import com.example.stocknew.models.Company;
+import com.example.stocknew.models.CompanyDTO;
+import com.example.stocknew.models.StockExchange;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
