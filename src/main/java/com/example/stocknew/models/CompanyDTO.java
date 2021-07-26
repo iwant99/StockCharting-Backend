@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 public class CompanyDTO {
     @NotNull
-    @Size(min=5)
+    @Size(min = 5)
     private String name;
     @NotNull
     private long sectorId;

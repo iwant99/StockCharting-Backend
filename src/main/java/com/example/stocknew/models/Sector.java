@@ -14,10 +14,10 @@ public class Sector {
     @Id
     @GeneratedValue
     private Long id;
-    @Column(unique = true,nullable = false)
+    @Column(unique = true, nullable = false)
     private String name;
     @JsonIgnore
-    @OneToMany(targetEntity = Company.class,cascade =CascadeType.ALL ,mappedBy = "sector")
+    @OneToMany(targetEntity = Company.class, cascade = CascadeType.ALL, mappedBy = "sector")
     private List<Company> companyList;
     private String brief;
 }

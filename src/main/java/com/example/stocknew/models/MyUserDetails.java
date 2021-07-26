@@ -6,6 +6,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.*;
+
 public class MyUserDetails implements UserDetails {
 
     private String userName;
@@ -16,8 +17,8 @@ public class MyUserDetails implements UserDetails {
     public MyUserDetails(User user) {
         this.userName = user.getUserName();
         this.password = user.getPassword();
-        this.authorities=new ArrayList<>();
-        String role=user.isAdmin()? "ROLE_ADMIN":"ROLE_USER";
+        this.authorities = new ArrayList<>();
+        String role = user.isAdmin() ? "ROLE_ADMIN" : "ROLE_USER";
         this.authorities.add(new SimpleGrantedAuthority(role));
     }
 

@@ -29,22 +29,21 @@ public class HomeController {
     }
 
     @GetMapping("/")
-    public String landing(){
+    public String landing() {
         return ("<h1>welcome Stranger</h1>");
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestParam String username){
-        Map<String,String> map = new HashMap<>();
-        map.put("username",username);
+    public ResponseEntity<?> login(@RequestParam String username) {
+        Map<String, String> map = new HashMap<>();
+        map.put("username", username);
         return ResponseEntity.ok(map);
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<User> usersign(@Valid @RequestBody UserDTO userDTO){
+    public ResponseEntity<User> usersign(@Valid @RequestBody UserDTO userDTO) {
 
-        if (userService.exists(userDTO))
-        {
+        if (userService.exists(userDTO)) {
             ResponseEntity.status(HttpStatus.CONFLICT).body("user already exists");
         }
 

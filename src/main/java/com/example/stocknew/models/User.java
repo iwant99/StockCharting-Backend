@@ -15,13 +15,13 @@ public class User {
     @Id
     @GeneratedValue
     private Long id;
-    @Column(unique = true,nullable = false)
+    @Column(unique = true, nullable = false)
     private String userName;
     @Column(nullable = false)
     private String password;
-    @Column(unique = true,nullable = false)
+    @Column(unique = true, nullable = false)
     private String emailId;
-    @Column(unique = true,nullable = false)
+    @Column(unique = true, nullable = false)
     private String mobile;
     @Column(nullable = false)
     private boolean isAdmin;

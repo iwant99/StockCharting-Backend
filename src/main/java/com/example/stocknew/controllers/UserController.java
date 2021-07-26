@@ -15,8 +15,9 @@ public class UserController {
     public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
+
     @GetMapping("")
-    public String user(){
+    public String user() {
         return ("<h1>welcome user!</h1>");
     }
 }

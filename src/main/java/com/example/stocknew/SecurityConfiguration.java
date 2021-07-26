@@ -16,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     MyUserDetailsService myUserDetailsService;
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(myUserDetailsService);
@@ -30,7 +31,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and().formLogin().loginProcessingUrl("/login").permitAll()
                 .successForwardUrl("/login").permitAll();
     }
+
     @Bean
-    public PasswordEncoder getPasswordEncoder(){return NoOpPasswordEncoder.getInstance();}
+    public PasswordEncoder getPasswordEncoder() {
+        return NoOpPasswordEncoder.getInstance();
+    }
 
 }
