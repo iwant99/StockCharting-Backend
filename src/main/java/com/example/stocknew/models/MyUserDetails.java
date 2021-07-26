@@ -1,11 +1,11 @@
 package com.example.stocknew.models;
 
+import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.*;
-
 public class MyUserDetails implements UserDetails {
 
     private String userName;

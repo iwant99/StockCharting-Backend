@@ -15,7 +15,7 @@ public class UserService {
         this.userRepository = userRepository;
     }
     public boolean exists(UserDTO userDTO){
-       if (userRepository.existsByUserName(userDTO.getUserName()).isPresent() ||
+       if (userRepository.existsByUserName(userDTO.getUserName()).isPresent()||
                 userRepository.existsByEmailId(userDTO.getEmailId()).isPresent() ||
                 userRepository.existsByMobile(userDTO.getMobile()).isPresent() )
            return true;
