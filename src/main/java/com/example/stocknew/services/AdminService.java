@@ -23,7 +23,18 @@ public class AdminService {
         this.sectorRepository = sectorRepository;
         this.stockExchangeRepository = stockExchangeRepository;
     }
-
+    public Sector addSector(Sector sector) {
+        if (sectorRepository.existsByName(sector.getName())) {
+            return null;
+        }
+        return sectorRepository.save(sector);
+    }
+    public StockExchange addExchange(StockExchange stockExchange) {
+        if (stockExchangeRepository.existsByName(stockExchange.getName())) {
+            return null;
+        }
+        return stockExchangeRepository.save(stockExchange);
+    }
     public Company addCompany(CompanyDTO companyDTO) {
         if (companyRepository.existsByName(companyDTO.getName())) {
             return null;

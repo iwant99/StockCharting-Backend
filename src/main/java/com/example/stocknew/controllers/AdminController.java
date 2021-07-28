@@ -1,5 +1,6 @@
 package com.example.stocknew.controllers;
 
+import com.example.stocknew.models.Sector;
 import com.example.stocknew.services.AdminService;
 import com.example.stocknew.models.Company;
 import com.example.stocknew.models.CompanyDTO;
@@ -30,7 +31,14 @@ public class AdminController {
     public ResponseEntity<?> addCompany(@Valid @RequestBody CompanyDTO companyDTO) {
         return ResponseEntity.ok(adminService.addCompany(companyDTO));
     }
-
+    @PostMapping("/addexchange")
+    public ResponseEntity<?> addExchange(@Valid @RequestBody StockExchange stockExchange) {
+        return ResponseEntity.ok(adminService.addExchange(stockExchange));
+    }
+    @PostMapping("/addsector")
+    public ResponseEntity<?> addSector(@Valid @RequestBody Sector sector) {
+        return ResponseEntity.ok(adminService.addSector(sector));
+    }
     @DeleteMapping("/deletecompany/id={id}")
     public ResponseEntity<?> deleteCompanyById(@PathVariable("id") Long id) {
         Optional<Company> company = adminService.findById(id);
